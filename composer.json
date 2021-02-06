@@ -2,6 +2,7 @@
   "name": "niksteklo34/logger",
   "description": "Custom logger",
   "type": "library",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "nik12",
