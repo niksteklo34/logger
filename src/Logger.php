@@ -12,7 +12,7 @@ class Logger implements LoggerInterface
     public function __construct($logFile, $storage)
     {
         $this->logFile = $logFile;
-        $this->storage = dirname(__DIR__) . '/' . $storage;
+        $this->storage = $_SERVER['DOCUMENT_ROOT'] . '/' . $storage;
     }
 
     public function emergency($message, array $context = array())
@@ -59,7 +59,7 @@ class Logger implements LoggerInterface
     {
         $storage = $this->storage;
         $logfile = $this->logFile;
-        $handle = fopen($storage . '/' . $logfile, 'a');
+        $handle = fopen($storage . '/' . $logfile . '.log', 'a');
         $context = implode(',', $context);
         $time = date('Y-m-d h:i:s');
         $message = "=====\nLevel: {$level}\nMessage: {$message}\nContext: {$context}\n\n{$time}\n=====\n\n";
